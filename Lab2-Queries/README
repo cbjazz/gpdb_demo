@@ -1,0 +1,15 @@
+Lab5 - Running Queries
+
+In this lab we will learn how to run queries using psql.
+
+1. It is recommended to run and read over all the options provided in psql.
+
+psql -?
+
+2. To run a query you simple run the following:
+
+psql -f myquery.sql
+
+3. You may run each of these by hand or a script to run them all has been included for you.
+
+./run_queries.sh

@@ -1,0 +1,31 @@
+%YAML 1.1
+---
+VERSION: 1.0.0.1
+ 
+DATABASE: dca_demo
+USER: gpadmin
+PASSWORD: changeme
+HOST: mdw
+PORT: 5432
+GPLOAD:
+   INPUT:
+     - SOURCE:
+        LOCAL_HOSTNAME:
+         - mdw
+        PORT: 8081
+        FILE:
+         - /home/gpadmin/Immersion/data/products_dim.tsv.gz
+     - COLUMNS:
+       - product_id: numeric
+       - category_id: numeric
+       - price: numeric
+       - product_name: text
+     - FORMAT: text
+     - DELIMITER: '	'
+     - NULL_AS: ''
+     - ENCODING: 'UTF8'
+     - ERROR_LIMIT: 100
+     - ERROR_TABLE: err.products_dim_err
+   OUTPUT:
+     - TABLE: retail_demo.products_dim 
+     - MODE: INSERT
